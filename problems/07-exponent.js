@@ -17,25 +17,26 @@ Examples:
 
 ***********************************************************************/
 
-function exponent(num, power) {
-
+function exponent(num, power, counter = 0) {
+    counter++
+    console.log('counter', counter)
 if(power === 0){
     return 1
 }
 
 if (power > 0){
-    return num * exponent(num, power - 1)
+    return num * exponent(num, power - 1, counter)
 }
 
 if(power < 0){
-    return 1/num * (exponent(num, (power + 1 )))
+    return 1/num * (exponent(num, (power + 1 ), counter))
 }
 
 }
 
-console.log(exponent(3, 2)); // 9
-console.log(exponent(2, -2)); // 1/4 (or 0.25)
-console.log(exponent(5, 5)); // 3125
+//console.log(exponent(3, 2)); // 9
+//console.log(exponent(2, -2)); // 1/4 (or 0.25)
+console.log(exponent(4, 6)); // 3125
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

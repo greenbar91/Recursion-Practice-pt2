@@ -40,9 +40,47 @@ times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
 
-function advancedExponent(b, n) {
-  // Your code here 
+function advancedExponent(num, power, counter = 0) {
+  counter++
+  console.log('counter', counter)
+  if (power === 0) return 1
+  if (power === 1) return num
+  if (power === 2) return num * num
+  if(power > 0) {
+
+
+    if( power % 2 === 0) {
+
+      let halfAnswer = advancedExponent(num, power / 2, counter)
+    return halfAnswer * halfAnswer
+    }
+    else if(power % 2 !== 0 ) {
+
+      let halfAnswer = advancedExponent(num, (power - 1) / 2, counter)
+
+    return num * halfAnswer * halfAnswer
+    }
+  }
+
+if(power < 0){
+  return 1/num * (advancedExponent(num, (power + 1 ), counter))
 }
+
+}
+
+// console.log(advancedExponent(2, 0)); // 1
+// console.log(advancedExponent(2, 1)); // 2
+// console.log(advancedExponent(2, 2)); // 4
+console.log(advancedExponent(2, 10)); // 8
+// console.log(advancedExponent(2, 4)); // 16
+// console.log(advancedExponent(2, 5)); // 32
+// console.log(advancedExponent(2, 6)); // 64
+// console.log(advancedExponent(2, 7)); // 128
+// console.log(advancedExponent(2, -8))
+// console.log(advancedExponent(2, -9))
+// console.log(advancedExponent(2, -10))
+// console.log(advancedExponent(2, -11))
+//console.log(advancedExponent(2, -12))
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
